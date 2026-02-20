@@ -1,0 +1,243 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  color:#fff;
+}
+
+/* 🔐 CYBER BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  background:url("img1.png") center/cover no-repeat;
+  z-index:-2;
+}
+
+/* Dark overlay for readability */
+.bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,rgba(0,0,0,.55),rgba(0,0,0,.92));
+}
+
+/* Pages */
+.page{
+  display:none;
+  height:100vh;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:20px;
+  text-align:center;
+}
+
+.page.active{display:flex}
+
+/* 💎 Glass Card */
+.card{
+  width:100%;
+  max-width:700px;
+  padding:40px 30px;
+  border-radius:18px;
+  backdrop-filter:blur(14px);
+  background:linear-gradient(135deg,rgba(0,0,0,.55),rgba(0,0,0,.35));
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+
+.secure{
+  font-size:14px;
+  letter-spacing:3px;
+  opacity:.8;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:40px;
+  margin-bottom:30px;
+}
+
+.signup-title{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+/* Login Row */
+.login-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  border-bottom:1px solid rgba(255,255,255,.2);
+  padding-bottom:10px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+/* Buttons */
+button{
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:500;
+  transition:.3s;
+}
+
+#startBtn{
+  background:#ccc;
+  color:#000;
+  cursor:not-allowed;
+}
+
+#startBtn.active{
+  background:linear-gradient(90deg,#00c6ff,#ff00c8);
+  color:#fff;
+  cursor:pointer;
+}
+
+.face-btn{
+  background:#1e90ff;
+  color:#fff;
+}
+
+.voice-btn{
+  background:#1e90ff;
+  color:#fff;
+  margin-bottom:15px;
+}
+
+/* Age Check */
+.age-check{
+  display:inline-flex;
+  gap:10px;
+  background:rgba(255,255,255,.1);
+  padding:10px 18px;
+  border-radius:20px;
+}
+
+/* 🎥 FACE BOX */
+.face-box{
+  width:90vw;
+  max-width:520px;
+  height:90vw;
+  max-height:520px;
+  border-radius:30px;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.5);
+  margin-bottom:20px;
+  position:relative;
+  backdrop-filter:blur(10px);
+}
+
+.face-box video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Scanning frame */
+.scan-frame{
+  position:absolute;
+  inset:25px;
+  border:2px solid rgba(255,255,255,.7);
+  border-radius:20px;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{opacity:.3}
+  50%{opacity:1}
+  100%{opacity:.3}
+}
+
+/* 🎤 VOICE CIRCLE */
+.voice-circle{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00c6ff,#ff00c8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.voice-loader{
+  font-size:28px;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:.3}
+  50%{opacity:1}
+}
+
+/* Status Text */
+#statusText,
+#voiceText{
+  margin-top:15px;
+  font-size:15px;
+  opacity:.95;
+}
+
+/* ⚠️ POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+
+.popup.active{display:flex}
+
+.popup-box{
+  background:#111;
+  padding:25px 30px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(255,0,0,.4);
+}
+
+.popup-box h3{
+  margin-bottom:10px;
+  color:#ff4d4d;
+}
+
+.popup-box p{
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.popup-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.retry-btn{
+  background:#ff4d4d;
+  color:#fff;
+}
+
+.swap-btn{
+  background:#444;
+  color:#fff;
+}
+
+/* 📱 MOBILE */
+@media(max-width:600px){
+  h1{font-size:28px}
+  .signup-title{font-size:26px}
+  .voice-circle{width:160px;height:160px}
+}
